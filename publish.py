@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 #
 # Usage:
-#    ./publish.py <arg1: name of the target directory>
+#    ./publish.py
 #
 # This script copies the contents of the local public_html
 # directory to /var/www/<arg1>/public_html then restarts httpd
 
-import sys
 import subprocess
+import sys
 
-no_arguments_error_text = ("\n\n" + "You must specify the name of the directory you want to publish to." + "\n")
-too_many_arguments_error_text = ("\n\n" + "Too many arguments." + "\n")
-usage_text = ("\n\n" + "Usage:" + "\n" + "  ./publish.py <arg1: name of the target directory>" + "\n")
+# Set your project name below
+project_name = "eulerJS"
 
-if len(sys.argv) > 2:
-    sys.exit(too_many_arguments_error_text + usage_text)
-elif len(sys.argv) == 1:
-    sys.exit(no_arguments_error_text + usage_text)
+if project_name == "publish_script_default":
+  sys.exit("\n\n" + "You must configure your project name in publish.py. See line 12 of the script." + "\n\n")
 else:
-    subprocess.call("sudo cp -R public_html/* /var/www/" + sys.argv[1] + "/public_html", shell=True)
-    subprocess.call("sudo apachectl restart", shell=True)
+  subprocess.call("sudo cp -R public_html/* /var/www/" + project_name + "/public_html", shell=True)
+  subprocess.call("sudo rm /etc/httpd/sites-enabled/*.conf", shell=True)
+  subprocess.call("sudo ln -s /etc/httpd/sites-available/" + project_name + ".conf /etc/httpd/sites-enabled/" + project_name + ".conf", shell=True)
+  subprocess.call("sudo apachectl restart", shell=True)
