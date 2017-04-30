@@ -10,10 +10,8 @@ function computeResult() {
   while (currentNum < 4000000) {
 
     currentNum = lastNum + lastLastNum;
-    buffer = currentNum;
     lastLastNum = lastNum;
-    lastNum = buffer;
-    console.log(currentNum);
+    lastNum = currentNum;
 
     if (currentNum % 2 == 0) {
 
