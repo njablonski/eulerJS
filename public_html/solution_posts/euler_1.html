@@ -25,16 +25,26 @@
         </div>
       </nav>
     </div>
-  
-    <div class="container">
-      <p id="outputBox">placeholder</p>
-    </div>
 
-    <script src="euler_1.js"></script>
-    <script>window.onload = computeResult;</script>
+    <div class="container">
+      <div class="page-header">
+        <h1>1. Multiples of 3 and 5</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+        </div>
+        <div class="col-sm-6">
+          <textarea class="form-control" rows="26" id="editorSpace"></textarea>
+          <button type="button" class="btn" style="margin-top: 5px;" onclick="computeResult();">Run</button>
+          <div class="well" style="margin-top: 5px;"><p id="outputBox"></p></div>
+        </div>
+      </div>
+    </div>
 
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="euler_1.js"></script>
   </body>
 </html>
