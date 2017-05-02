@@ -32,12 +32,24 @@
 }
 
 .jumbotron {
-    background: url("assets/cropped.jpg");
-    margin-bottom: 0;
-    min-height: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    color: #555;
-    text-align: right;
+  background: url("assets/cropped.jpg");
+  margin-bottom: 0;
+  min-height: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #555;
+  text-align: right;
+}
+
+p {
+  color: #555;
+}
+
+h1 {
+  color: #555;
+}
+
+h2 {
+  color: #555;
 }
