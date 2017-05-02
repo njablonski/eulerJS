@@ -4,7 +4,9 @@
 #    ./publish.py
 #
 # This script copies the contents of the local public_html
-# directory to /var/www/<arg1>/public_html then restarts httpd
+# directory to /var/www/<project_name>/public_html, clears
+# all enabled .conf files, then links <project_name>.conf
+# from sites_available to sites_enabled and restarts httpd
 
 import subprocess
 import sys
