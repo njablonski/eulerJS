@@ -42,6 +42,11 @@
   text-align: right;
 }
 
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+
 p {
   color: #555;
 }
