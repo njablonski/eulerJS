@@ -1,4 +1,4 @@
-function computeResult() {
+function main() {
 
   var sum = 0;
   var count = 0;
@@ -15,3 +15,5 @@ function computeResult() {
   document.getElementById("outputBox").innerHTML = sum;
 
 }
+
+main();
