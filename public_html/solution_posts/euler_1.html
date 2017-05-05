@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS, CodeMirror CSS, then custom CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../lib/codemirror-5.25.2/lib/codemirror.css">
     <link rel="stylesheet" href="../eulerJS.css">
   </head>
   <body>
 
+    <!-- Solution-page style navbar -->
     <div class="container" style="padding-top: 25px;">
       <nav class="navbar navbar-default">
         <div class="container">
@@ -27,6 +28,7 @@
       </nav>
     </div>
 
+    <!-- Page content goes in this container -->
     <div class="container">
       <div class="page-header">
         <h1>1. Multiples of 3 and 5</h1>
@@ -36,12 +38,15 @@
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
         </div>
         <div class="col-sm-6">
+          <!-- This textarea defines where our CodeMirror editor will go, referred to by its id of "editorSpace" -->
           <textarea class="form-control" rows="26" id="editorSpace" style="outline: #00FF00 dotted 0px;"></textarea>
           <div class="row">
             <div class="col-sm-2" style="padding-right: 2px;">
-              <button type="button" class="btn btn-lg btn-block" style="width=100%; margin-top: 5px; margin-right: 0px;" onclick="computeResult();">Run</button>
+              <!-- This button runs a function from the initialization script that fetches the editor content, adds it to the DOM, and runs main() -->
+              <button type="button" class="btn btn-lg btn-block" style="width=100%; margin-top: 5px; margin-right: 0px;" onclick="executeEditorContent();">Run</button>
             </div>
             <div class="col-sm-10" style="padding-left: 2px;">
+              <!-- This pre field had id "outputBox" and serves as a known element for code from the editor to write to -->
               <pre style="margin-top: 5px; height: 3pc; overflow-y: scroll;" id="outputBox"></pre>
             </div>
           </div>
@@ -49,14 +54,17 @@
       </div>
     </div>
 
+    <!-- This hidden iframe preloads the default text for our CodeMirror editor -->
+    <iframe id="frmFile" src="euler_1.js" style="display: none;"></iframe>
+
+    <!-- Load and run initialization script to create CodeMirror editor -->
     <script src="initialize.js"></script>
     <script>window.onload = initializeMain;</script>
 
-    <!-- jQuery first, then Bootstrap JS. -->
+    <!-- jQuery first, then Bootstrap JS, then CodeMirror -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../lib/codemirror-5.25.2/lib/codemirror.js"></script>
     <script src="../lib/codemirror-5.25.2/mode/javascript/javascript.js"></script>
-    <script src="euler_1.js"></script>
   </body>
 </html>
