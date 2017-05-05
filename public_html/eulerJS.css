@@ -47,6 +47,10 @@
   height: auto;
 }
 
+.page-header {
+  margin-top: 0px;
+}
+
 p {
   color: #555;
 }
@@ -57,4 +61,13 @@ h1 {
 
 h2 {
   color: #555;
+}
+
+h3 {
+  color: #555;
+}
+
+blockquote {
+  color: #555;
+  font-size: 14px;
 }
