@@ -5,11 +5,11 @@ function initializeMain() {
   var contents = oFrame.contentWindow.document.body.childNodes[0].innerHTML; 
 
   // clean up special characters from HTML encoding
-  contents = contents.replace("&lt;", "<");
-  contents = contents.replace("&gt;", ">");
+  contents = contents.replace(/&lt;/g, "<");
+  contents = contents.replace(/&gt;/g, ">");
 
   // initialize editor with line numbers at location of textarea "editorSpace"
-  var myCodeMirror = CodeMirror.fromTextArea(editorSpace, { lineNumbers: true, });
+  var myCodeMirror = CodeMirror.fromTextArea(editorSpace, { lineNumbers: true, lineWrapping: true, });
 
   // load the initial content into the editor
   myCodeMirror.setValue(contents);
