@@ -47,12 +47,12 @@
              it for divisibility by the numbers 11-20, and returns true only if it passes. We don't need to test for
              divisibility by the numbers 1-10, as they are all factors of at least one number in the range 11-20
              (i.e. any number divisible by 20 is also divisible by 10, 5, 4, 2, and 1).</p>
-          <p>Our main function has an incrementing loop that runs <code>isDivisibleByRange</code> until a number passes.
+          <p>Our main function has an incrementing loop that runs <code>isDivisibleByRange()</code> until a number passes.
              From the <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">fundamental theorem of arithmetic</a>
              we encountered in <a href="euler_3.html">Problem 3</a>, we know that prime factors of a number cannot be reduced or
              divided out of that number's unique prime factorization. Therefore, we can multiply together all of the prime numbers
-             in the range 1-20 and start our search from the nearest multiple of 20. We'll then increment by 20 each loop until we
-             find a number that passes.</p>
+             in the range 1-20, round that product down to the nearest multiple of 20, and start our search from the number 9699680.
+             We'll then increment by 20 each loop until we find a number that passes.</p>
           <p>It takes about 10 seconds for my computer to reach the correct result of 232792560 with this code.</p>
           <small>- published 5-5-2017, by Nicholas Jablonski</small>
         </div>
