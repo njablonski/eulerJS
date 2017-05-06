@@ -23,7 +23,7 @@ function main() {
   var num = 9699680;
 
   // while our num doesn't meet the target condition
-  while(!(isDivisibleByRange(num)) {
+  while(!(isDivisibleByRange(num))) {
 
     // keep incrementing it by 20
     num += 20;
