@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS, CodeMirror CSS, then custom CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/codemirror-5.25.2/lib/codemirror.css">
     <link rel="stylesheet" href="../eulerJS.css">
   </head>
   <body>
 
+    <!-- Solution-page style navbar -->
     <div class="container" style="padding-top: 25px;">
       <nav class="navbar navbar-default">
         <div class="container">
@@ -25,16 +27,75 @@
         </div>
       </nav>
     </div>
-  
+
+    <!-- Page content goes in this container -->
     <div class="container">
-      <p id="outputBox">placeholder</p>
+      <div class="page-header">
+        <h1>4. Largest palindrome product</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="container" style="padding-left: 0px; padding-bottom: 10px;">
+            <a href="https://projecteuler.net/problem=4">Read the problem definition at projecteuler.net</a>
+          </div>
+          <blockquote>
+            <p>A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.</p>
+            <p>Find the largest palindrome made from the product of two 3-digit numbers.</p>
+          </blockquote>
+          <p>This problem deals with numeric palindromes: numbers whose digits form the same sequence whether read forward or backward, like 123321.</p>
+          <p>Solving this challenge requires comparing individual digits of large numbers. To do this, we'll transform the numbers into strings with
+             the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString">toString()</a> method. We
+             can then access individual digits like array indices with the
+             <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt">charAt()</a> method.</p>
+          <p>An important task in this algorithm is determining if a number is palindromic. We'll write another function called
+             <code>checkIfPalindrome()</code> to handle this. It converts the input it's given into a string and sets two indices, one at the
+             beginning of the string and one at the end. It then checks to see if the characters at those indices match, and returns false if they
+             don't. If the first and last characters match, each index is moved one character towards the middle of the string and the loop repeats.
+             Characters equidistant from the middle of the string are checked in this manner until the middle of the string is reached, indicating
+             a palindromic input.</p>
+          <p>Our main function uses two nested loops to produce products of 3-digit numbers. We choose not to check the products of numbers less
+             than 500, as it seems reasonable to conclude that the largest palindrome will be a product of two larger-than-average 3-digit numbers.
+             Each product we produce that's bigger than the biggest palindrome found so far is checked to see if it's palindromic. If so, it gets
+             stored as the largest palindrome found.</p>
+          <p>When the loops complete, we're left with 906609 as the largest palindrome found, which is the correct answer to the challenge.</p>
+          <small>- published 5-5-2017, by Nicholas Jablonski</small>
+        </div>
+        <div class="col-sm-6">
+          <!-- This textarea defines where our CodeMirror editor will go, referred to by its id of "editorSpace" -->
+          <textarea class="form-control" rows="26" id="editorSpace" style="outline: #00FF00 dotted 0px;"></textarea>
+          <div class="row">
+            <div class="col-sm-2" style="padding-right: 2px;">
+              <!-- This button runs a function from the initialization script that fetches the editor content, adds it to the DOM, and runs main() -->
+              <button type="button" class="btn btn-lg btn-block" style="width=100%; margin-top: 5px; margin-right: 0px;" onclick="executeEditorContent();">Run</button>
+            </div>
+            <div class="col-sm-10" style="padding-left: 2px;">
+              <!-- This pre field had id "outputBox" and serves as a known element for code from the editor to write to -->
+              <pre style="margin-top: 5px; height: 3pc; overflow-y: scroll;" id="outputBox"></pre>
+            </div>
+          </div>
+          <!-- Editor instructions -->
+          <h3>Tinker with me!</h3>
+          <p>Feel free to modify the code in the editor above, just remember these three things:</p>
+          <ul>
+            <li>Be sure to call your main function at the bottom of your code.</li>
+            <li>The output area is a <code>&lt;pre&gt;</code> tag with the id <code>outputBox</code>. Refer to the default code in the editor for an example of how to write a value to the output area.</li>
+            <li>Your only debugger is the one in your browser. You can access the console in most browsers by right-clicking and choosing <code>Inspect</code>.</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <script src="euler_4.js"></script>
-    <script>window.onload = computeResult;</script>
+    <!-- This hidden iframe preloads the default text for our CodeMirror editor -->
+    <iframe id="frmFile" src="euler_4.js" style="display: none;"></iframe>
 
-    <!-- jQuery first, then Bootstrap JS. -->
+    <!-- Load and run initialization script to create CodeMirror editor -->
+    <script src="initialize.js"></script>
+    <script>window.onload = initializeMain;</script>
+
+    <!-- jQuery first, then Bootstrap JS, then CodeMirror -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../lib/codemirror-5.25.2/lib/codemirror.js"></script>
+    <script src="../lib/codemirror-5.25.2/mode/javascript/javascript.js"></script>
   </body>
 </html>
