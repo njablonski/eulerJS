@@ -7,6 +7,7 @@ function initializeMain() {
   // clean up special characters from HTML encoding
   contents = contents.replace(/&lt;/g, "<");
   contents = contents.replace(/&gt;/g, ">");
+  contents = contents.replace(/&amp;/g, "&");
 
   // initialize editor with line numbers at location of textarea "editorSpace"
   var myCodeMirror = CodeMirror.fromTextArea(editorSpace, { lineNumbers: true, lineWrapping: true, });
